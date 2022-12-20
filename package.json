@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "dev": "node server.js",
+    "prod": "pm2 start server.js"
   },
   "keywords": [
     "maros-web",
@@ -15,6 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
-    "ip": "^1.1.8"
+    "ip": "^1.1.8",
+    "package.json": "^2.0.1",
+    "pm2": "^5.2.2"
   }
 }
