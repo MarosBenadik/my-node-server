@@ -5,7 +5,7 @@ const ip = require('ip')
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello Maros!')
+  res.send('Hello Maros! Your CD works great')
 })
 
 app.listen(port, () => {
