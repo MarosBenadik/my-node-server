@@ -1,7 +1,8 @@
 const router = require('express').Router();
-
+const geoip = require('geoip-lite');
 
 router.get('/', (req, res) => {
+    console.log(geoip.lookup(req.hostname))
     res.render('index')
 })
 
@@ -16,5 +17,6 @@ router.get('/about', (req, res) => {
 router.get('/technologies', (req, res) => {
     res.render('technologies')
 })
+
 
 module.exports = router;    
