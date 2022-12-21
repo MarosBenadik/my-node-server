@@ -88,10 +88,10 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 text-center">
-          <% if(data.order !== 1){ %>
+          <% if(data.order !== 1){ %> 
             <ul class="navbar-nav nav">
               <li>
-                <a href="" title="" class="project-nav left"><span class="project-number"><%= data.order - 1 %></span>Previous</a>
+                <a href="/projects?project=<%= data.order - 1 %>" title="" class="project-nav left"><span class="project-number"><%= data.order - 1 %></span>Previous</a>
               </li>
             </ul>
           <% } else{ %>  
@@ -100,7 +100,7 @@
           <% if(total !== data.order){ %>
             <ul class="navbar-nav nav navbar-right">
               <li>
-                <a href="" title="" class="project-nav right"><span class="project-number"><%= data.order + 1 %></span>Next </a>
+                <a href="/projects?project=<%= data.order + 1 %>" title="" class="project-nav right"><span class="project-number"><%= data.order + 1 %></span>Next </a>
               </li>
             </ul>
           <% } else{ %>  

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {getLocation} = require('../helper.js');
 const Project = require('../models/project.js');
+const url = require('url');
 
 router.get('/',  async (req, res) => {
     getLocation(req.hostname)
@@ -8,19 +9,18 @@ router.get('/',  async (req, res) => {
 });
 
 router.get('/projects', async (req, res) => {
-    const count = await Project.countDocuments({}).exec();
+    let project
 
-    const project = await Project.findOne({order: 1})
+    const count = await Project.countDocuments({}).exec();
+    const param = url.parse(req.url, true).query;
+    if (param.project){
+        project = await Project.findOne({order: param.project})
+    } else {
+        project = await Project.findOne({order: 1})
+    }
 
     const techStack = await project.technologies.replace(/\s/g, '').split(",")
 
-    res.render('project', {data: project, technologies: techStack, total: count })
-});
-
-router.post('/projects', async (req, res) => {
-    const count = await Project.countDocuments({}).exec();
-    const project = await Project.find({order: req.data.order})
-    const techStack = project.technologies.replace(/\s/g, '').split(",")
     res.render('project', {data: project, technologies: techStack, total: count })
 });
 
