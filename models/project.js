@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const ProjectSchema = new mongoose.Schema({
     headline: {
@@ -6,7 +7,7 @@ const ProjectSchema = new mongoose.Schema({
         required: true,
     },
     category: {
-        type: Number,
+        type: String,
         default: 0,
     },
     position: {
@@ -24,31 +25,58 @@ const ProjectSchema = new mongoose.Schema({
             type: String,
         }
     },
-    technologies:[{
+    technologies:{
         type : String,
-    }],
+    },
     imgs:{
         imgMain: {
             type: String
         },
+        descMain:{
+            type: String,
+            default: "None"
+        },
         img1: {
             type: String
+        },
+        descImg1:{
+            type: String,
+            default: "None"
         },
         img2:{
             type: String
         },
+        descImg2:{
+            type: String,
+            default: "None"
+        },
         img3:{
             type: String
+        },
+        descImg3:{
+            type: String,
+            default: "None"
         },
         img4:{
             type: String
         },
+        descImg4:{
+            type: String,
+            default: "None"
+        },
+        order: Number,
+    },
+    qoute:{
+        type: String,
+        default: "Something Smart .. "
     }
 },
 {
     timestamps: true
 }
 );
+
+ProjectSchema.plugin(AutoIncrement, {inc_field: 'order'});
 
 const Project = mongoose.model("Project", ProjectSchema);
 

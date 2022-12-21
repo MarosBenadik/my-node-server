@@ -1,0 +1,56 @@
+<% layout('/base') -%>
+<br/>
+<br/>
+<h1><%= message %></h1>
+<form action="/add-project" method="post">
+    <fieldset>
+        <legend>Post new Project</legend>
+        <label for="headline" style="display: block;">Project Headline:</label>
+        <input type="text" name="headline" /><br /><br />
+        <label for="category" style="display: block;">Category:</label>
+        <input type="text" name="category" /><br /><br />
+        <label for="position" style="display: block;">Position:</label>
+        <input type="text" name="position" /><br /><br />
+        <label for="description1" style="display: block;">Description first part:</label>
+        <textarea rows = "5" cols = "60" name = "description1">
+            Enter description here...
+        </textarea>
+        <br /><br />
+        <label for="description2" style="display: block;">Description second part:</label>
+        <textarea rows = "5" cols = "60" name = "description2">
+            Enter description here...
+        </textarea><br /><br />
+        <label for="description3" style="display: block;">Description third part:</label>
+        <textarea rows = "5" cols = "60" name = "description3">
+            Enter description here...
+        </textarea><br /><br />
+        <label for="technologies">Technologies:</label>
+        <input type="text" name="technologies" /><br /><br />
+        <label for="imgMain">Main Image:</label>
+        <input type="text" name="imgMain" /><br /><br />
+        <label for="descMain" style="display: block;">Main Image description:</label>
+        <input type="text" name="descMain" /><br /><br />
+        <label for="img1">Image 1:</label>
+        <input type="text" name="img1" /><br /><br />
+        <label for="descImg1" style="display: block;">Image 1 description:</label>
+        <input type="text" name="descImg1" /><br /><br />
+        <label for="img2">Image 2:</label>
+        <input type="text" name="img2" /><br /><br />
+        <label for="descImg2" style="display: block;">Image 2 description:</label>
+        <input type="text" name="descImg2" /><br /><br />
+        <label for="img3">Image 3:</label>
+        <input type="text" name="img3" /><br /><br />
+        <label for="descImg3" style="display: block;">Image 3 description:</label>
+        <input type="text" name="descImg3" /><br /><br />
+        <label for="img4">Image 4:</label>
+        <input type="text" name="img4" /><br /><br />
+        <label for="descImg4" style="display: block;">Image 4 description:</label>
+        <input type="text" name="descImg4" /><br /><br />
+        <label for="qoute" style="display: block;">Qoute:</label>
+        <input type="text" name="qoute" /><br /><br />
+        
+        <input type="submit" value="submit" />
+        <br/>
+        <p>...............................................................................................................................................</p>
+    </fieldset>
+  </form>

@@ -1,84 +1,83 @@
 <% layout('/base') -%>
 <br/>
 <br/>
-<div class="hero-full-container background-image-container white-text-container" style="background-image:url('static/assets/images/img-08.jpg')">
+
+<div class="hero-full-container background-image-container white-text-container" style="background-size: contain; height: 60%; background-image:url('<%= data.imgs.imgMain %>')">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <div class="hero-full-wrapper">
             <div class="text-content  text-center">
 
-              
+              <p><%= data.imgs.descMain %></p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="section-container">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <div class="text-center section-container-spacer">
-            <h2 class="with-project-number"><span class="project-number">01</span>Night Photography</h2>
+            <h2 class="with-project-number"><span class="project-number">
+              <% if(data.order < 9){ %>
+                0<%= data.order %>
+              <% } else{ %>  
+                <%= data.order %>
+              <% } %>            
+            </span><%= data.headline %></h2>
           </div>
           <div class="row section-container-spacer">
             <div class="col-md-4">
                 <div class="section-container-spacer">
-                  <h3>Photographic Project</h3>
-                  <p>Menphis June, 2016</p>
+                  <h3>Project:</h3>
+                  <h5><%= data.category %></h5>
+                  <h4>Started:</h4>
+                  <p><%= data.createdAt %></p>
                 </div>
   
-                <h4>Credits & Crew</h4>
+                <h4>Technologies:</h4>
                 
                 <ul class="list-unstyled">
-                  <li>Stanford</li> 
-                  <li>Pablo Malice</li>
-                  <li>Patricia Stano</li>
+                  <% for(var i=0; i<technologies.length; i++) {%>
+                    <li><%= technologies[i] %></li>
+                  <% } %>
                 </ul>
-                
-  
-                <p>Cityzen circus Association</p>
-                <p>Menphis City Hall</p>
             </div>
             <div class="col-md-8">
-              <h3>How to exchange with the nocturnal light ?</h3>
-              <p>Id eu nisl nunc mi ipsum faucibus vitae aliquet. Auctor urna nunc id cursus metus aliquam. A pellentesque sit amet
-                porttitor eget dolor morbi. Interdum varius sit amet mattis. Tincidunt dui ut ornare lectus sit amet est placerat
-                in. Diam volutpat commodo sed egestas. Praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla.
-                Non odio euismod lacinia at quis risus sed vulputate. Lacus sed turpis tincidunt id aliquet risus feugiat.</p>
-                <p> Mieget mauris pharetra et ultrices neque ornare. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis.
-                Euismod in pellentesque massa placerat. Consectetur libero id faucibus nisl tincidunt eget. Pulvinar etiam non
-                quam lacus suspendisse. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Ante in nibh mauris cursus
-                mattis molestie a iaculis. Gravida cum sociis natoque penatibus et magnis dis parturient montes. Ultrices gravida
-                dictum fusce ut placerat orci. Id cursus metus aliquam eleifend mi in. Odio eu feugiat pretium nibh ipsum consequat.
-              </p>
+              <h3><%= data.position %></h3>
+              <br/>
+              <p  style="text-align:center;"><%= data.description.description1 %></p>
+              <br/>
+              <br/>
+              <p style="text-align:center;"><%= data.description.description2 %></p>
             </div>
           </div>
-  
-  
-          <img src="./static/assets/images/img-03.jpg" alt="" class="img-responsive">
-          <p>Menphis city center</p>
-  
+          <img src="<%= data.imgs.img1 %>" alt="" class="img-responsive" style="object-fit: scale-down; ">
+          <p><%= data.imgs.descImg1 %></p>
+          <br />
+          <br />
+          <p style="text-align:center;"><%= data.description.description3 %></p>
           <blockquote class="text-center large-spacing">
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."</p>
-              <small class="pull-right">Irina Martin</small>
+              <p>"<%= data.qoute %>"</p>
           </blockquote>
-          
+          <h4>Most Significant Events:</h4>
           <div class="row">
               <div class="col-md-6">
-              <img src="./static/assets/images/img-02.jpg" class="img-responsive" alt="">
-              <p>Menphis skyline</p>
+              <img src="<%= data.imgs.img2 %>" class="img-responsive" alt="" style="object-fit: scale-down; ">
+              <p><%= data.imgs.descImg2 %></p>
               </div>
               <div class="col-md-6">
-              <img src="./static/assets/images/img-01.jpg" class="img-responsive" alt="">
-              <p>Artefact Buildging</p>
+                <img src="<%= data.imgs.img3 %>" class="img-responsive" alt="" style="object-fit: scale-down; ">
+                <p><%= data.imgs.descImg3 %></p>
               </div>
           </div>
   
-          <img src="./static/assets/images/img-04.jpg" class="img-responsive" alt="">
-          <p>Menphis skyline</p>
+          <img src="<%= data.imgs.img4 %>" class="img-responsive" alt="">
+          <p><%= data.imgs.descImg4 %></p>
   
         </div>
       </div>
@@ -89,18 +88,23 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 text-center">
-          <ul class="navbar-nav nav">
-            <li>
-              <a href="" title="" class="project-nav left"><span class="project-number">01</span>Previous</a>
-            </li>
-          </ul>
-          <p class="h5 navbar-text">Night Photography <i class="fa fa-chevron-down arrow-down" aria-hidden="true"></i></p>
-  
-          <ul class="navbar-nav nav navbar-right">
-            <li>
-              <a href="" title="" class="project-nav right"><span class="project-number">03</span>Next </a>
-            </li>
-          </ul>
+          <% if(data.order !== 1){ %>
+            <ul class="navbar-nav nav">
+              <li>
+                <a href="" title="" class="project-nav left"><span class="project-number"><%= data.order - 1 %></span>Previous</a>
+              </li>
+            </ul>
+          <% } else{ %>  
+          <% } %>
+          <p class="h5 navbar-text"><%= data.headline %><i class="fa fa-chevron-down arrow-down" aria-hidden="true"></i></p>
+          <% if(total !== data.order){ %>
+            <ul class="navbar-nav nav navbar-right">
+              <li>
+                <a href="" title="" class="project-nav right"><span class="project-number"><%= data.order + 1 %></span>Next </a>
+              </li>
+            </ul>
+          <% } else{ %>  
+          <% } %>
         </div>
       </div>
     </div>
