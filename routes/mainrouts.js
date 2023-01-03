@@ -19,6 +19,7 @@ router.get('/projects', async (req, res) => {
         project = await Project.findOne({order: 1})
     }
 
+    console.log(project)
     const techStack = await project.technologies.replace(/\s/g, '').split(",")
 
     res.render('project', {data: project, technologies: techStack, total: count })
